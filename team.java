@@ -49,8 +49,15 @@ public class team {
         }
     }
 
-    //show a team member by position?
+    //show a team member by position
     private static void showATeamMemeber(String[] team) {
+        System.out.println("Which team member would you like to see?");
+        int teamMember = scan.nextInt();
+        if(teamMember < 0 && teamMember > team.length - 1){
+            System.out.println(teamMember + ": " + team[teamMember]);
+        } else {
+            System.out.println("invalid player");
+        }
     }
 
     private static void displayMenu() {
