@@ -56,8 +56,6 @@ public class team {
         int teamNumber = scan.nextInt();
         if(validateInput(teamNumber)){
             System.out.println(teamNumber + ": " + team[teamNumber]);
-        } else {
-            System.out.println("invalid player");
         }
     }
 
@@ -65,9 +63,10 @@ public class team {
     public static void addTeamMember(String[] team) {
         System.out.println("Enter new member name: ");
         String newMember = scan.next();
-        team[addingIndex++] = newMember;
-        //addingIndex++;
-
+        if(validateInput(addingIndex)){
+            team[addingIndex++] = newMember;
+            //addingIndex++;
+        }
     }
 
     //to check if the input is valid between 0-5
@@ -75,6 +74,7 @@ public class team {
         if(input >= 0 && input < 5){
             return true;
         } else {
+            System.out.println("invalid entry");
             return false;
         }
     }
