@@ -54,7 +54,7 @@ public class team {
     private static void showATeamMemeber(String[] team) {
         System.out.println("Which team member would you like to see?");
         int teamNumber = scan.nextInt();
-        if(teamNumber >= 0 && teamNumber < team.length){
+        if(validateInput(teamNumber)){
             System.out.println(teamNumber + ": " + team[teamNumber]);
         } else {
             System.out.println("invalid player");
@@ -67,6 +67,16 @@ public class team {
         String newMember = scan.next();
         team[addingIndex++] = newMember;
         //addingIndex++;
+
+    }
+
+    //to check if the input is valid between 0-5
+    public static boolean validateInput(int input){
+        if(input >= 0 && input < 5){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private static void displayMenu() {
@@ -76,6 +86,5 @@ public class team {
         System.out.println("(3) add a team member");
         System.out.println("(4) delete a team member");
         System.out.println("(5) delete ALL team members");
-
     }
 }
