@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class team {
     
     static Scanner scan = new Scanner(System.in);
+    static int addingIndex = 0;
     public static void main(String[] args) {
         
         /*
@@ -30,7 +31,7 @@ public class team {
                 showATeamMemeber(team);
             } else if(decision == 3){
                 //add a team member
-               // addTeamMember(team);
+               addTeamMember(team);
             } else if(decision == 4){
                 //delete a team member
                 //deleteATeamMember(team);
@@ -52,12 +53,20 @@ public class team {
     //show a team member by position
     private static void showATeamMemeber(String[] team) {
         System.out.println("Which team member would you like to see?");
-        int teamMember = scan.nextInt();
-        if(teamMember < 0 && teamMember > team.length - 1){
-            System.out.println(teamMember + ": " + team[teamMember]);
+        int teamNumber = scan.nextInt();
+        if(teamNumber >= 0 && teamNumber < team.length){
+            System.out.println(teamNumber + ": " + team[teamNumber]);
         } else {
             System.out.println("invalid player");
         }
+    }
+
+    //add a team member
+    public static void addTeamMember(String[] team) {
+        System.out.println("Enter new member name: ");
+        String newMember = scan.next();
+        team[addingIndex++] = newMember;
+        //addingIndex++;
     }
 
     private static void displayMenu() {
