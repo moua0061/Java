@@ -34,12 +34,29 @@ public class team {
                addTeamMember(team);
             } else if(decision == 4){
                 //delete a team member
-                //deleteATeamMember(team);
+                deleteATeamMember(team);
             } else {
                 //delete all team members
-                //deleteAllTeamMemebers();
+                deleteAllTeamMemebers(team);
             }
          }
+    }
+
+    //delete all team member
+    public static void deleteAllTeamMemebers(String[] team) {
+        for(int i = 0; i < team.length; i++){
+            team[i] = null;
+        }
+    }
+
+
+    //delete a team member
+    public static void deleteATeamMember(String[] team) {
+        System.out.println("Which team member would you like to delete?");
+        int teamMemberToDelete = scan.nextInt();
+        if(validateInput(teamMemberToDelete)){
+            team[teamMemberToDelete] = null;
+        }
     }
 
     //show all team members
